@@ -1,4 +1,5 @@
 ﻿using BLL.Classes.Owners;
+using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,27 +8,34 @@ using System.Threading.Tasks;
 
 namespace BLL.Classes.Localities
 {
-    class Nature : ILocality
+    class Nature : Locality
     {
-        public Owner owner = new MotherNature();
-        private int polution = 0;
-        private float foodAmountPercent = 0;
+        public Owner owner;
         private int comfort = 0;
 
-        public Nature() { }
+        public Nature() {
+            owner = new MotherNature(this);
+        }
         public Nature(byte polution, byte foodAmountPercent)
         {
             this.polution = polution;
             this.foodAmountPercent = foodAmountPercent;
+            owner = new MotherNature(this);
         }
 
-        public int CountComfortPercent()
+        override public void Notify()
+        {
+            base.Notify();
+            CountComfortPercent();
+        }
+
+        override public int CountComfortPercent()
         {
             comfort = ((int)(foodAmountPercent - polution));
             return comfort;
         }
 
-        public int Feeding(Animal animal)
+        override public int Feeding(Animal animal)
         {
             Random random = new Random();
             int chance = random.Next(39, 44);
@@ -61,36 +69,28 @@ namespace BLL.Classes.Localities
             return 0;
         }
 
-        public int Sleep()
+        override public int Sleep()
         {
             CountComfortPercent();
             return (comfort % 100);
         }
 
-
-        public void Notify()
-        {
-            CountComfortPercent();
-            owner.Update(this);
-        }
-
-
-        public int GetPolution()
+        override public int GetPolution()
         {
             return this.polution;
         }
 
-        public void SetPolution(int polution)
+        override public void SetPolution(int polution)
         {
             this.polution = polution;
         }
 
-        public float GetFoodAmountPercent()
+        override public float GetFoodAmountPercent()
         {
             return this.foodAmountPercent;
         }
 
-        public void SetFoodAmountPercent(float foodAmount)
+        override public void SetFoodAmountPercent(float foodAmount)
         {
             this.foodAmountPercent = foodAmount;
         }
@@ -101,7 +101,7 @@ namespace BLL.Classes.Localities
             return str;
         }
 
-        public Owner GetOwner()
+        override public Owner GetOwner()
         {
             return owner;
         }

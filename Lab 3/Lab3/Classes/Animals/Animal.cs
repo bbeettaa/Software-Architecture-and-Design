@@ -1,5 +1,6 @@
 ﻿using BLL.Classes.Localities;
 using BLL.Новая_папка;
+using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Classes
 {
-    public class Animal
+    abstract public class Animal
     {
         protected String name = "Animal";
         protected int daysAlive = 0;
@@ -30,14 +31,24 @@ namespace BLL.Classes
         public bool canFeed { get; set; } = true;
 
         public IMoveState move;
-        public ILocality locality;
+        public Locality locality;
         public History history { get; set; } = new History();
+
+        public Animal(string name)
+        {
+            this.name = name;
+
+            Simulation.GetInstance().OnChangeHandler +=
+            new Simulation.ChangeEventHandler(Update);
+        }
+
+        abstract public void Update(object source, SimulationEventArgs e);
 
         public List<Object> getAllInfo()
         {
             List<Object> info = new List<Object>();
             List<FieldInfo> fieldName = typeof(Animal).GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.SetField  ).ToList();
-            fieldName = (from x in fieldName where x.CustomAttributes.Count() != 2 select x).ToList(); // CustomeAtribute.Count() == 2 is private property
+            fieldName = (from x in fieldName where x.CustomAttributes.Count() != 2 select x).ToList();
             List<Object> fieldInfo = new List<Object>();
 
             foreach (var field in fieldName)
@@ -45,17 +56,9 @@ namespace BLL.Classes
                 info.Add(field.Name);
                 info.Add(field.GetValue(this));  
             }
-
             return info;
         }
 
-
-        public Animal()
-        {
-        }
-        public Animal(string name) {
-            this.name = name;
-        }
         public void SetMoveState(IMoveState moveState) { }
         public String Voice() { return voice; }
         virtual public void Sleep() {
@@ -95,10 +98,11 @@ namespace BLL.Classes
         }
 
         public void Death() { isAlive = false; }
-        public virtual void Update(Simulation publisher)
-        {
 
-        }
+
+
+
+
         protected bool isCriticalState() {
             if (health <= 25) {
                 System.Diagnostics.Debug.WriteLine("needed health");

@@ -1,6 +1,7 @@
 ﻿using BLL.Classes;
 
 using BLL.Classes.Builder;
+using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -16,18 +17,33 @@ namespace BLL.Новая_папка
         private int time = 0; // max 24 000
         private List<Animal> animals;
         System.Timers.Timer timer = new System.Timers.Timer();
+        static private Simulation instance;
 
         public Simulation() {
+            instance = this;
             animals = new List<Animal>();
             Director d = new Director();
             animals.Add(d.BuildHomeAnimal(new CatBuilder(),"Cat 1"));
             animals.Add(d.BuildWildAnimal(new CatBuilder(), "Cat 2"));
-            //animals.Add(d.BuildHomeAnimal(new CatBuilder()));
 
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
             timer.Enabled = false;
             timer.Interval = this.speed;
+        }
+
+        public delegate void ChangeEventHandler(object source, SimulationEventArgs e);
+        public event ChangeEventHandler OnChangeHandler;
+        public void Notify()
+        {
+            if (time >= 24_000) time = 0;
+
+            OnChangeHandler?.Invoke(this, new SimulationEventArgs(time));
+            time += hour;
+        }
+
+        public static Simulation GetInstance() {
+            return instance;
         }
 
         public void ChangeSpeed(double speed) {
@@ -40,16 +56,6 @@ namespace BLL.Новая_папка
 
         public List<Animal> GetAnimals() { return animals; }
 
-        public void Notify()
-        {
-            if (time >= 24000) time = 0;
-
-            foreach (var animal in animals)
-            {
-                animal.Update(this);
-            }
-            time += hour;  
-        }
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             Notify();

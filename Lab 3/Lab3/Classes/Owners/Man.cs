@@ -1,4 +1,5 @@
 ﻿using BLL.Classes.Localities;
+using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,19 @@ namespace BLL.Classes.Owners
         private int foodIncreasePercent = 81;
         private int polutionClean;
 
-        public Man()
+        public Man(Locality locality)
         {
             Random random = new Random();
-            polutionClean = 5; //random.Next(1, 15);
+            polutionClean = random.Next(1, 15);
+
+            locality.OnChangeHandler += 
+                new Locality.ChangeEventHandler(Update);
         }
-        public void Update(ILocality locality)
+        public void Update(object source, LocalityEventArgs e)
         {
-            if (locality is null) { throw new ArgumentNullException(nameof(locality)); }
-            if (locality.GetPolution() > 10) { locality.SetPolution(CleanPolution(locality.GetPolution())); }
-            if (locality.GetFoodAmountPercent() < 50) locality.SetFoodAmountPercent(SetFoodIncreasePercent(locality.GetFoodAmountPercent()));
+            if (source is null) { throw new ArgumentNullException(nameof(source)); }
+            if (e.Polution > 10) (source as Locality).SetPolution(CleanPolution(e.Polution));
+            if (e.FoodAmount < 50) (source as Locality).SetFoodAmountPercent(SetFoodIncreasePercent(e.FoodAmount));
         }
         public int SetFoodIncreasePercent(float percent)
         {

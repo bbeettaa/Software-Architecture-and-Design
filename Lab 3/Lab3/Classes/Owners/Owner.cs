@@ -1,4 +1,5 @@
 ﻿using BLL.Classes.Localities;
+using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace BLL.Classes.Owners
 {
     public interface Owner
     {
-        public void Update(ILocality locality);
+        public void Update(object source, LocalityEventArgs e);
         }
 }

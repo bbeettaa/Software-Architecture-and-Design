@@ -1,4 +1,5 @@
 ﻿using BLL.Новая_папка;
+using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace BLL.Classes.Animals
 
         }
 
-        public override void Update(Simulation publisher)
+        public override void Update(object source, SimulationEventArgs e)
         {
             if (!isAlive) return;
             bool criticalState = isCriticalState();
@@ -27,7 +28,7 @@ namespace BLL.Classes.Animals
 
 
             locality.Notify();
-            if (publisher.GetTime() >= sleepTime || publisher.GetTime() <= wakeupTime) Sleep();//18000 - evening, 6000 - morning
+            if (e.Time >= sleepTime || e.Time <= wakeupTime) Sleep();//18000 - evening, 6000 - morning
             else if (isSleep) WakeUp();
             else if (energy <= 0)
             {
@@ -62,7 +63,7 @@ namespace BLL.Classes.Animals
             {
                 health -= 10;
             }
-            if (publisher.GetTime() == 0)
+            if (e.Time == 0)
                 history.Add($"New day {++daysAlive}");
 
             if (energy > 100) energy = 100;

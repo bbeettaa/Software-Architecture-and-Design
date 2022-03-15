@@ -1,4 +1,5 @@
 ﻿using BLL.Classes.Owners;
+using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,26 +8,35 @@ using System.Threading.Tasks;
 
 namespace BLL.Classes.Localities
 {
-    class Home : ILocality
+    class Home : Locality
     {
-        public Man owner = new Man();
-        private int polution = 0;
-        private int foodAmountPercent = 0;
+        public Man owner;
+
         private int comfort = 0;
 
-        public Home() { }
+
+        public Home() {
+            owner = new Man(this);
+        }
         public Home(byte polution, byte foodAmountPercent) {
             this.polution = polution;
             this.foodAmountPercent = foodAmountPercent;
+            owner = new Man(this);
         }
 
-        public int CountComfortPercent()
+        override public void Notify()
         {
-            comfort = (foodAmountPercent-polution );
+            base.Notify();
+            CountComfortPercent();
+        }
+
+        override public int CountComfortPercent()
+        {
+            comfort = ((int)(foodAmountPercent - polution));
             return comfort;
         }
 
-        public int Feeding(Animal animal)
+        override public int Feeding(Animal animal)
         {
             Random random = new Random();
             int chance = random.Next(50, 70);
@@ -34,7 +44,7 @@ namespace BLL.Classes.Localities
             chance += animal.GetEnergy() / 15;
             chance += animal.GetHealth() / 15;
             chance += 10 - animal.GetSatiety() / 15;
-            chance += foodAmountPercent / 15;
+            chance += (int)(foodAmountPercent / 15);
 
             //System.Diagnostics.Debug.WriteLine($"feeding {chance}%");
 
@@ -60,44 +70,35 @@ namespace BLL.Classes.Localities
             return 0;
         }
 
-        public int Sleep()
+        override public int Sleep()
         {
             CountComfortPercent();
             return (comfort % 100);
         }
 
-
-        public void Notify()
-        {
-            CountComfortPercent();
-            owner.Update(this);
-        }
-
-
-        public int GetPolution()
+        override public int GetPolution()
         {
             return this.polution;
         }
 
-        public void SetPolution(int polution)
+        override public void SetPolution(int polution)
         {
             this.polution = polution;
         }
 
-        public float GetFoodAmountPercent()
+        override public float GetFoodAmountPercent()
         {
             return this.foodAmountPercent;
         }
 
-        public void SetFoodAmountPercent(float foodAmount)
+        override public void SetFoodAmountPercent(float foodAmount)
         {
             this.foodAmountPercent = (int)foodAmount;
         }
 
-
         public override String ToString() { return $"{this.GetType().Name}, Polution - {polution}%, FoodAmount - {foodAmountPercent}%, Comfor - {comfort}   "; }
 
-        public Owner GetOwner()
+        override public Owner GetOwner()
         {
             return owner;
         }

@@ -28,3 +28,4 @@ C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab 3\Lab3\obj\Debug\net5.0\La
 C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab 3\Lab3\obj\Debug\net5.0\ref\Lab3.dll
 C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab 3\Lab3\obj\Debug\net5.0\Lab3.pdb
 C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab 3\Lab3\obj\Debug\net5.0\Lab3.genruntimeconfig.cache
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab 3\Lab3\obj\Debug\net5.0\Lab3.csproj.AssemblyReference.cache
