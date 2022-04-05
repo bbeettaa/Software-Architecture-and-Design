@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bedu_s_bashkoy\\source\\repos\\АтаППЗ\\Lab 3\\Lab3\\Lab3.csproj",
-      "projectName": "Lab3",
-      "projectPath": "C:\\Users\\bedu_s_bashkoy\\source\\repos\\АтаППЗ\\Lab 3\\Lab3\\Lab3.csproj",
+      "projectUniqueName": "C:\\Users\\bedu_s_bashkoy\\source\\repos\\АтаППЗ\\Lab 3\\Lab3\\BLL.csproj",
+      "projectName": "BLL",
+      "projectPath": "C:\\Users\\bedu_s_bashkoy\\source\\repos\\АтаППЗ\\Lab 3\\Lab3\\BLL.csproj",
       "packagesPath": "C:\\Users\\bedu_s_bashkoy\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\bedu_s_bashkoy\\source\\repos\\АтаППЗ\\Lab 3\\Lab3\\obj\\",
       "projectStyle": "PackageReference",

@@ -3,23 +3,34 @@ using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BLL.Classes.Animals
 {
-    class Cat : Animal
+
+    [Serializable]
+    public class Cat : Animal
     {
-        
-        private IMoveState runState { get; set; } = new RunState();
-        private IMoveState walkState { get; set; } = new WalkState();
-        private IMoveState crawlState { get; set; } = new CrawlState();
+        [NonSerialized]
+        private IMoveState runState;
+        [NonSerialized]
+        private IMoveState walkState;
+        [NonSerialized]
+        private IMoveState crawlState;
 
+        public Cat() : this("new_Cat")
+        {
 
-        public Cat(String name) : base(name) { 
-        
         }
-
+        public Cat(String name) : base(name) {
+            runState = new RunState();
+            walkState = new WalkState();
+            crawlState = new CrawlState();
+        }
+        [System.STAThread]
         public override void Update(object source, SimulationEventArgs e)
         {
             if (!isAlive) return;

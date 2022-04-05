@@ -3,21 +3,29 @@ using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Classes.Animals
 {
-    class Parrot : Animal
+    [Serializable]
+    public class Parrot : Animal
     {
+        [NonSerialized]
+        private IMoveState flyState;
+        [NonSerialized]
+        private IMoveState walkState;
 
-        private IMoveState flyState { get; set; } = new RunState();
-        private IMoveState walkState { get; set; } = new WalkState();
+        public Parrot() : base("new_Parrot")
+        {
 
+        }
 
         public Parrot(String name) : base(name)
         {
-
+            walkState = new WalkState();
+            flyState = new RunState();
         }
 
         public override void Update(object source, SimulationEventArgs e)

@@ -3,19 +3,26 @@ using Lab3.Classes.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Classes.Animals
 {
-    class Snake : Animal
+    [Serializable]
+    public class Snake : Animal
     {
-        private IMoveState crawlState { get; set; } = new CrawlState();
+        [NonSerialized]
+        private IMoveState crawlState;
 
+        public Snake() :this("new_Snake")
+        {
+
+        }
 
         public Snake(String name) : base(name)
         {
-
+            crawlState = new CrawlState();
         }
 
         public override void Update(object source, SimulationEventArgs e)

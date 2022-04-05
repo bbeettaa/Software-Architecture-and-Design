@@ -4,24 +4,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BLL.Classes.Owners
 {
-    class MotherNature : Owner
+    [Serializable]
+    public class MotherNature : Owner
     {
-        private float foodIncreasePercent;
-        private int polutionClean = 11;
-        Random random;
-        public MotherNature(Locality locality)
-        {
+        public MotherNature():base() { 
+       // public MotherNature(Locality locality)
+        
             random = new Random(8);
             foodIncreasePercent = (float)((float)random.NextDouble() * (0.62 - 0.58) + 0.61);
-            locality.OnChangeHandler +=
-    new Locality.ChangeEventHandler(Update);
+          //locality.OnChangeHandler += new Locality.ChangeEventHandler(Update);
         }
 
-        public void Update(object source, LocalityEventArgs e)
+       override public void Update(object source, LocalityEventArgs e)
         {
             if (source is null) { throw new ArgumentNullException(nameof(source)); }
             if(e.Polution>0) (source as Locality).SetPolution(CleanPolution(e.Polution)); 

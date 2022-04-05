@@ -9,21 +9,22 @@ using System.Threading.Tasks;
 
 namespace BLL.Classes.Builder
 {
-    class ParrotBuilder : IBuilder {
-        
-            public Animal BuildHomeAnimal(String name)
-            {
-        Parrot cat = new Parrot(name);
-                cat.locality = new Home();
-                return cat;
-            }
+    class ParrotBuilder : IBuilder
+    {
 
-            public Animal BuildWildAnimal(String name)
-            {
-                Cat cat = new Cat(name);
-                cat.locality = new Nature();
-                return cat;
-            }
+        public Animal BuildHomeAnimal(String name)
+        {
+            Parrot parrot = new Parrot(name);
+            parrot.locality = new Home();
+            return parrot;
+        }
+
+        public Animal BuildWildAnimal(String name)
+        {
+            Parrot parrot = new Parrot(name);
+            parrot.locality = new Nature();
+            return parrot;
         }
     }
+}
 

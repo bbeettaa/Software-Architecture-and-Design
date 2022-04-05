@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Packet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <cats>
+    <Cat>
+      <name>new_Cat</name>
+      <daysAlive>0</daysAlive>
+      <isAlive>true</isAlive>
+      <isSleep>false</isSleep>
+      <health>100</health>
+      <energy>100</energy>
+      <hunger>100</hunger>
+      <happiness>0</happiness>
+      <energySaveModify>1</energySaveModify>
+      <agility>0</agility>
+      <wakeupTime>7000</wakeupTime>
+      <sleepTime>18000</sleepTime>
+      <SpeedUp>1</SpeedUp>
+      <canFeed>true</canFeed>
+    </Cat>
+  </cats>
+  <parrots />
+  <snakes />
+</Packet>

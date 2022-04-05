@@ -14,6 +14,12 @@ namespace BLL.Bll
         double speed = 1000;
         bool canFeed = true;
         bool pause = false;
+        Simulation sim;
+
+        public ChangeState(Simulation sim) {
+            this.sim = sim;
+        }
+
         public void ChangeCanFeed(Animal animal) {
             canFeed = !canFeed;
             animal.canFeed = canFeed;
@@ -24,17 +30,17 @@ namespace BLL.Bll
             animal.Feeding(10);
         }
 
-        public void SpeedUp(Simulation sim) {
+        public void SpeedUp() {
             speed -= 100;
             if (speed <= 0)
                 speed = 100;
             sim.ChangeSpeed(speed);
         }
-        public void SlowDown(Simulation sim) {
+        public void SlowDown() {
             sim.ChangeSpeed(speed += 100);
         }
 
-        public void Pause(Simulation sim) {
+        public void Pause() {
             pause = !pause;
             if(pause)
             sim.ChangeSpeed(int.MaxValue);

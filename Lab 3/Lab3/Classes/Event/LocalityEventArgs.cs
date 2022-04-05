@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace Lab3.Classes.Event
 {
-    public class SimulationEventArgs : EventArgs
+	public class LocalityEventArgs : EventArgs
 	{
-		public int Time { get; private set; }
-		public SimulationEventArgs(int time)
+		public int Polution { get; private set; }
+		public float FoodAmount { get; private set; }
+		public LocalityEventArgs(int polution, float foodAmount)
 		{
-			this.Time = time;
+			this.Polution = polution;
+			this.FoodAmount = foodAmount;
 		}
 
 	}

@@ -4,24 +4,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BLL.Classes.Localities
 {
-    class Home : Locality
+    [Serializable]
+    public class Home : Locality
     {
-        public Man owner;
-
         private int comfort = 0;
 
-
-        public Home() {
-            owner = new Man(this);
+        public Home():base() {
+            owner = new Man();
         }
-        public Home(byte polution, byte foodAmountPercent) {
+
+        public Home(Owner owner) : base(owner)
+        {
+
+        }
+
+        public Home(byte polution, byte foodAmountPercent):this() {
             this.polution = polution;
             this.foodAmountPercent = foodAmountPercent;
-            owner = new Man(this);
         }
 
         override public void Notify()

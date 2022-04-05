@@ -6,40 +6,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BLL.Classes
 {
+    [Serializable]
     abstract public class Animal
     {
-        protected String name = "Animal";
-        protected int daysAlive = 0;
-        protected bool isAlive = true;
-        protected bool isSleep = false;
-        protected int health = 100;
-        protected int energy = 100;
-        protected float energySaveModify { get; set; } = 1;
-        protected int hunger = 100;
-        protected int agility { get; set; } = 0; // max 100
-        protected int happiness = 0;
-
-        protected String voice;
-        protected int wakeupTime { get; set; } = 7000;//18000 - evening, 6000 - morning
-        protected int sleepTime { get; set; } = 18000;
-        protected int SpeedUp { get; set; } = 1;
-
+        public String name = "Animal";
+        public int daysAlive = 0;
+        public bool isAlive = true;
+        public bool isSleep = false;
+        public int health = 100;
+        public int energy = 100;
+        public float energySaveModify { get; set; } = 1;
+        public int hunger = 100;
+        public int agility { get; set; } = 0; // max 100
+        public int happiness = 0;
+        public String voice;
+        public int wakeupTime { get; set; } = 7000;//18000 - evening, 6000 - morning
+        public int sleepTime { get; set; } = 18000;
+        public int SpeedUp { get; set; } = 1;
         public bool canFeed { get; set; } = true;
-
+        [NonSerialized]
         public IMoveState move;
-        public Locality locality;
-        public History history { get; set; } = new History();
 
-        public Animal(string name)
+        public Locality locality;
+        public History history;
+
+        public Animal()
+        {
+            SubscribeOnEvent();
+
+            locality = null;
+            history = new();
+        }
+        public Animal(string name):this()
         {
             this.name = name;
+        }
 
+        public void SubscribeOnEvent() {
             Simulation.GetInstance().OnChangeHandler +=
-            new Simulation.ChangeEventHandler(Update);
+    new Simulation.ChangeEventHandler(Update);
         }
 
         abstract public void Update(object source, SimulationEventArgs e);

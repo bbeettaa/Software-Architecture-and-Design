@@ -8,8 +8,20 @@ using System.Threading.Tasks;
 
 namespace BLL.Classes.Owners
 {
-    public interface Owner
+    [Serializable]
+    public abstract class Owner
     {
-        public void Update(object source, LocalityEventArgs e);
+        protected float foodIncreasePercent;
+        protected int polutionClean;
+        protected int comfort = 0;
+        [NonSerialized]
+        protected Random random;
+
+
+        public Owner() {
+            random = new Random(0);
+        }
+
+        abstract public void Update(object source, LocalityEventArgs e);
         }
 }

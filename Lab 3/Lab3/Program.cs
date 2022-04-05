@@ -8,10 +8,6 @@ namespace BLL
     {
         static void Main()
         {
-            Console.OutputEncoding = Encoding.Unicode;
-            Console.InputEncoding = Encoding.Unicode;
-
-            Menu.MainMenu();
         }
     }
 }
