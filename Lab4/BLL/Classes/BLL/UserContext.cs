@@ -1,5 +1,6 @@
 ﻿using BLL.Classes.File;
 using BLL.Classes.FileFound;
+using BLL.Classes.Memento;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,17 +14,15 @@ namespace BLL.Classes.BLL.Context
     public class UserContext 
     {
         List<Content> contents;
-
+        CareTaker careTaker;
         protected IRepositoryContext repositoryContext;
-        protected IFileFinder fileFinder;
 
-        public UserContext(IRepositoryContext repositoryContext, IFileFinder fileFinder)
+        public UserContext(IRepositoryContext repositoryContext, CareTaker careTaker)
         {
             this.repositoryContext = repositoryContext;
-            this.fileFinder = fileFinder;
             contents = new List<Content>();
             ReadFromRepository();
-            // contents=this.fileFinder.ContentFound();
+            this.careTaker = careTaker;
         }
 
         //Update frome repository
@@ -58,6 +57,7 @@ namespace BLL.Classes.BLL.Context
 
         public void DeleteFile(Content file)
         {
+            careTaker.Save(file);
             repositoryContext.Delete(file);
             contents.Remove(file);
         }
@@ -73,6 +73,19 @@ namespace BLL.Classes.BLL.Context
                 var content = new Content(fileName, ext, path.Replace("\\" + fileName, ""), fileInfo.CreationTime);
                 contents.Add(content);
                 repositoryContext.Write(content);
+            }
+        }
+
+        public void AddContent(Content content) {
+            contents.Add(content);
+        }
+
+        public void Undo() {
+            Content content = careTaker.Ubdo();
+            if (content != null)
+            {
+                repositoryContext.Write(content);
+                contents.Add(content);
             }
         }
 

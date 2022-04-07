@@ -9,7 +9,7 @@
     ResizeMode="CanMinimize"
         Title="MainWindow" Height="500" Width="1100">
     <Grid Margin="0,0,-178,0">
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="294" VerticalAlignment="Top" 
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="391" VerticalAlignment="Top" 
                   Width="958" SelectionChanged="ListView_SelectionChanged">
             <ListView.ContextMenu>
                 <ContextMenu x:Name="cm" StaysOpen="true">
@@ -28,6 +28,8 @@
                     <Separator/>
                     <MenuItem Header="Додати файл" Click="MenuItem_AddFile"/>
                     <MenuItem Header="Видалити файл" Click="MenuItem_DellFile"/>
+                    <Separator/>
+                    <MenuItem Header="Повернути" Click="MenuItem_Undo"/>
                 </ContextMenu>
             </ListView.ContextMenu>
 
@@ -43,7 +45,7 @@
             <File:Content Extension=".json" Name="Two" Path="C://Test//T2"/>
             <File:Content Extension=".xml" Name="Three" Path="C://Test//Tes1"/>
         </ListView>
-        <ListBox x:Name="listBoxExtension" HorizontalAlignment="Left" Height="294" Margin="973,0,0,0" VerticalAlignment="Top" Width="116"/>
+        <ListBox x:Name="listBoxExtension" HorizontalAlignment="Left" Height="391" Margin="973,0,0,0" VerticalAlignment="Top" Width="116"/>
 
 
 

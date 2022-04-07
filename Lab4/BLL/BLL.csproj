@@ -48,6 +48,9 @@
     <Compile Include="Classes\Content\Content.cs" />
     <Compile Include="Classes\FileFound\FileFinder.cs" />
     <Compile Include="Classes\FileFound\IFileFinder.cs" />
+    <Compile Include="Classes\Memento\CareTaker.cs" />
+    <Compile Include="Classes\Memento\ConcretMemento.cs" />
+    <Compile Include="Classes\Memento\IMemento.cs" />
     <Compile Include="Classes\Sort\SortByDateAsc.cs" />
     <Compile Include="Classes\Sort\SortByDateDesc.cs" />
     <Compile Include="Classes\Sort\SortByExtensionAsc.cs" />

@@ -32,8 +32,6 @@ namespace PL
 
             DrowListViewItems_Contents(userContext.GetContents());
             DrowListViewItems_Extensions();
-
-
         }
 
 /*        public MainWindow()
@@ -237,13 +235,22 @@ namespace PL
         {
             try
             {
-                userContext.DeleteFile(this.listView.SelectedItems[0] as Content);
+                foreach(Content content in this.listView.SelectedItems)
+                userContext.DeleteFile(content as Content);
                 DrowListViewItems_Contents(userContext.GetContents());
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void MenuItem_Undo(object sender, RoutedEventArgs e)
+        {
+            userContext.Undo();
+            DrowListViewItems_Contents(userContext.GetContents());
+
+
         }
 
 
