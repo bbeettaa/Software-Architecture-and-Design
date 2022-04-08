@@ -46,8 +46,6 @@
     <Compile Include="Classes\BLL\IRepositoryContext.cs" />
     <Compile Include="Classes\BLL\UserContext.cs" />
     <Compile Include="Classes\Content\Content.cs" />
-    <Compile Include="Classes\FileFound\FileFinder.cs" />
-    <Compile Include="Classes\FileFound\IFileFinder.cs" />
     <Compile Include="Classes\Memento\CareTaker.cs" />
     <Compile Include="Classes\Memento\ConcretMemento.cs" />
     <Compile Include="Classes\Memento\IMemento.cs" />
