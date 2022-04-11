@@ -3,6 +3,7 @@ using BLL.Classes.File;
 using BLL.Classes.Sort;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -190,6 +191,8 @@ namespace PL
         private void Open_File_Click(object sender, RoutedEventArgs e)
         {
             Content content = this.listView.SelectedItem as Content;
+            if (content == null) return;
+
             try
             {
                 System.Diagnostics.Process.Start(content.Path + "\\" + content.Name);
@@ -198,7 +201,11 @@ namespace PL
             {
                 MessageBox.Show(ex.Message);
             }
-            catch (System.NullReferenceException ex) {
+            catch (System.NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -225,9 +232,16 @@ namespace PL
             bool? result = dialog.ShowDialog();
             if (result == true)
             {
-                foreach (var name in dialog.FileNames)
-                    userContext.CreateFile(name);
-                DrowListViewItems_Contents(userContext.GetContents());
+                try
+                {
+                    foreach (var name in dialog.FileNames)
+                        userContext.CreateFile(name);
+                    DrowListViewItems_Contents(userContext.GetContents());
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -249,9 +263,8 @@ namespace PL
         {
             userContext.Undo();
             DrowListViewItems_Contents(userContext.GetContents());
-
-
-        }
+            DrowListViewItems_Extensions();
+            }
 
 
 

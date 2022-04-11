@@ -9,24 +9,30 @@ namespace BLL.Classes.Memento
 {
     public class CareTaker
     {
-        List<IMemento> mementos;
-        public CareTaker() {
+        ICollection<IMemento> mementos;
+        public CareTaker()
+        {
             mementos = new List<IMemento>();
         }
 
-        public void Save(Content content) {
+        public void Save(Content content)
+        {
             mementos.Add(new ConcretMemento(content));
         }
 
-        public Content Ubdo() {
+        public Content Ubdo()
+        {
             if (mementos.Count == 0) return null;
 
-            try {
+            try
+            {
                 IMemento m = mementos.Last();
                 mementos.Remove(m);
                 return m.GetContent();
-            } catch (Exception ex) { 
-                this.Ubdo(); 
+            }
+            catch (Exception ex)
+            {
+                this.Ubdo();
             }
 
             return null;

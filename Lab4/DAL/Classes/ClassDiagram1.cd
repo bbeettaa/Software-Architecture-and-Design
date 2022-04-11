@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="DAL.Classes.Context.ContentContext">
-    <Position X="3.5" Y="1.5" Width="1.5" />
+    <Position X="4.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Classes\Context\ContentContext.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAL.Classes.Repository.EntityRepository">
-    <Position X="7" Y="1.5" Width="1.5" />
+    <Position X="7.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAQAAAAAAAAAAAgAAEAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Classes\Repository\EntityRepository.cs</FileName>
@@ -19,7 +19,7 @@
     <Lollipop Position="0.21" />
   </Class>
   <Interface Name="BLL.Classes.BLL.Context.IRepositoryContext">
-    <Position X="9" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="0.75" Width="1.5" />
     <TypeIdentifier />
   </Interface>
   <Font Name="Segoe UI" Size="9" />

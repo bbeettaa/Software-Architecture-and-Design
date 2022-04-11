@@ -1,5 +1,4 @@
 ﻿using BLL.Classes.File;
-using BLL.Classes.FileFound;
 using BLL.Classes.Memento;
 using System;
 using System.Collections;
@@ -11,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace BLL.Classes.BLL.Context
 {
-    public class UserContext 
+    public class UserContext
     {
         List<Content> contents;
-        CareTaker careTaker;
+        List<CareTaker> careTaker;
+        int careTakerIndex;
         protected IRepositoryContext repositoryContext;
 
         public UserContext(IRepositoryContext repositoryContext, CareTaker careTaker)
@@ -22,13 +22,15 @@ namespace BLL.Classes.BLL.Context
             this.repositoryContext = repositoryContext;
             contents = new List<Content>();
             ReadFromRepository();
-            this.careTaker = careTaker;
+            this.careTaker = new List<CareTaker>();
+            this.careTaker.Add(careTaker);
+            careTakerIndex = 0;
         }
 
         //Update frome repository
         public void ReadFromRepository()
         {
-            this.contents= repositoryContext.Read();
+            this.contents = repositoryContext.Read();
         }
 
 
@@ -57,7 +59,7 @@ namespace BLL.Classes.BLL.Context
 
         public void DeleteFile(Content file)
         {
-            careTaker.Save(file);
+            careTaker[careTakerIndex].Save(file);
             repositoryContext.Delete(file);
             contents.Remove(file);
         }
@@ -68,20 +70,29 @@ namespace BLL.Classes.BLL.Context
             string ext = fileName.Remove(0, fileName.LastIndexOf('.'));
 
             FileInfo fileInfo = new FileInfo(path);
-            using (fileInfo.OpenRead())
+            try
             {
-                var content = new Content(fileName, ext, path.Replace("\\" + fileName, ""), fileInfo.CreationTime);
-                contents.Add(content);
-                repositoryContext.Write(content);
+                using (fileInfo.OpenRead())
+                {
+                    var content = new Content(fileName, ext, path.Replace("\\" + fileName, ""), fileInfo.CreationTime);
+                    contents.Add(content);
+                    repositoryContext.Write(content);
+                }
+            }
+            catch (IOException ex)
+            {
+                throw new IOException(ex.Message);
             }
         }
 
-        public void AddContent(Content content) {
+        public void AddContent(Content content)
+        {
             contents.Add(content);
         }
 
-        public void Undo() {
-            Content content = careTaker.Ubdo();
+        public void Undo()
+        {
+            Content content = careTaker[careTakerIndex].Ubdo();
             if (content != null)
             {
                 repositoryContext.Write(content);
