@@ -43,3 +43,5 @@ C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\DAL\obj\Debug\DAL.cspro
 C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\DAL\obj\Debug\DAL.exe
 C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\DAL\obj\Debug\DAL.pdb
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\DAL\bin\Debug\AutoMapper.dll
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\DAL\bin\Debug\AutoMapper.xml

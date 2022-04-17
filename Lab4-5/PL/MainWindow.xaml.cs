@@ -215,6 +215,9 @@ namespace PL
             {
                 MessageBox.Show(ex.Message);
             }
+            catch (System.NullReferenceException ex) { 
+            
+            }
         }
 
         private void MenuItem_AddFile(object sender, RoutedEventArgs e)

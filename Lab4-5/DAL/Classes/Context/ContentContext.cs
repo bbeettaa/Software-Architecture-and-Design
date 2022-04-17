@@ -10,11 +10,10 @@ namespace DAL.Classes.Context
 {
     public class ContentContext : DbContext
     {
-        public ContentContext() : base("Contents1") {
+        public ContentContext() : base("Contents2") {
             var ensureDLLIsCopied =
                    System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
-        public DbSet<Content> Files { get; set; }
+        public DbSet<ContentDTO> Files { get; set; }
     }
 }
-

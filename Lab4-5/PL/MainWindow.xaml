@@ -46,7 +46,8 @@
             <File:Content Extension=".xml" Name="Three" Path="C://Test//Tes1"/>
         </ListView>
         <ListBox x:Name="listBoxExtension" HorizontalAlignment="Left" Height="391" Margin="973,0,0,0" VerticalAlignment="Top" Width="116"/>
-        <TextBox HorizontalAlignment="Left" Height="21" Margin="0,396,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" TextChanged="TextBox_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="62,396,0,49" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="185" TextChanged="TextBox_TextChanged" AutomationProperties.HelpText="Пошук"/>
+        <Label Content="Пошук" HorizontalAlignment="Left" Margin="10,396,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.532,0.554"/>
 
 
 
