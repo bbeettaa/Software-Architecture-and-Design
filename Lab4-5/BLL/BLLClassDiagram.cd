@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BLL.Classes.BLL.Context.UserContext" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="careTaker" Type="BLL.Classes.Memento.CareTaker" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="0.812" />
+        <Point X="9.562" Y="0.812" />
+        <Point X="9.562" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="repositoryContext" Type="BLL.Classes.BLL.Context.IRepositoryContext" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="0.75" />
+        <Point X="4.833" Y="0.75" Type="JumpStart" />
+        <Point X="4.667" Y="0.75" Type="JumpEnd" />
+        <Point X="1.25" Y="0.75" />
+        <Point X="1.25" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="finder" Type="BLL.Classes.Finder.IFindable" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="0.937" />
+        <Point X="4.833" Y="0.937" Type="JumpStart" />
+        <Point X="4.667" Y="0.937" Type="JumpEnd" />
+        <Point X="3" Y="0.937" />
+        <Point X="3" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BEAAAAAAAAAABCIABAQQAAAQAAgMAAAAACEAAAAAAAA=</HashCode>
+      <FileName>Classes\BLL\UserContext.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repositoryContext" />
+      <Field Name="finder" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="contents" />
+      <Field Name="careTaker" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BLL.Classes.File.Content" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAAAAAYAAAAAAAQAAAAAAYABAAABAAAAAAA=</HashCode>
+      <FileName>Classes\Content\Content.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Classes.Finder.ContentFinder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Finder\ContentFinder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Classes.Memento.CareTaker" Collapsed="true">
+    <Position X="8.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Memento\CareTaker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="mementos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BLL.Classes.Memento.ConcretMemento" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Classes\Memento\ConcretMemento.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="content" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Classes.Sort.SortByDateAsc" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Classes\Sort\SortByDateAsc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Classes.Sort.SortByDateDesc" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Classes\Sort\SortByDateDesc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Classes.Sort.SortByExtensionAsc" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Classes\Sort\SortByExtensionAsc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Classes.Sort.SortByExtensionDesc" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Classes\Sort\SortByExtensionDesc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Classes.Sort.SortByNameAsc" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Classes\Sort\SortByNameAsc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Classes.Sort.SortByNameDesc" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Classes\Sort\SortByNameDesc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Program" Collapsed="true">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BLL.Classes.BLL.Context.IRepositoryContext" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAgAAEAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Classes\BLL\IRepositoryContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BLL.Classes.Finder.IFindable" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Finder\IFindable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BLL.Classes.Memento.IMemento" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Classes\Memento\IMemento.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="BLL.Classes.Sort.SortingOreder" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Classes\Sort\SortByNameAsc.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

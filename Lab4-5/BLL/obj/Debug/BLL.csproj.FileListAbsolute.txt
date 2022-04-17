@@ -12,3 +12,10 @@ C:\Users\bedu_s_bashkoy\Desktop\NAU\АтаППЗ\Lab4-5\Lab4\BLL\obj\Debug\BLL.c
 C:\Users\bedu_s_bashkoy\Desktop\NAU\АтаППЗ\Lab4-5\Lab4\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 C:\Users\bedu_s_bashkoy\Desktop\NAU\АтаППЗ\Lab4-5\Lab4\BLL\obj\Debug\BLL.exe
 C:\Users\bedu_s_bashkoy\Desktop\NAU\АтаППЗ\Lab4-5\Lab4\BLL\obj\Debug\BLL.pdb
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\BLL\bin\Debug\BLL.exe.config
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\BLL\bin\Debug\BLL.exe
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\BLL\bin\Debug\BLL.pdb
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\BLL\obj\Debug\BLL.exe
+C:\Users\bedu_s_bashkoy\source\repos\АтаППЗ\Lab4-5\BLL\obj\Debug\BLL.pdb

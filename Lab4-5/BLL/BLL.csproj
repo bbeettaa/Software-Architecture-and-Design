@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BLLClassDiagram.cd" />
     <None Include="Classes\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup />
