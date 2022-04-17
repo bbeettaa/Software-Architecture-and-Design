@@ -46,6 +46,7 @@
             <File:Content Extension=".xml" Name="Three" Path="C://Test//Tes1"/>
         </ListView>
         <ListBox x:Name="listBoxExtension" HorizontalAlignment="Left" Height="391" Margin="973,0,0,0" VerticalAlignment="Top" Width="116"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="0,396,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="185" TextChanged="TextBox_TextChanged"/>
 
 
 

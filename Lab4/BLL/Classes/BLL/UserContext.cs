@@ -1,4 +1,5 @@
 ﻿using BLL.Classes.File;
+using BLL.Classes.Finder;
 using BLL.Classes.Memento;
 using System;
 using System.Collections;
@@ -16,8 +17,9 @@ namespace BLL.Classes.BLL.Context
         List<CareTaker> careTaker;
         int careTakerIndex;
         protected IRepositoryContext repositoryContext;
+        protected IFindable finder;
 
-        public UserContext(IRepositoryContext repositoryContext, CareTaker careTaker)
+        public UserContext(IRepositoryContext repositoryContext, CareTaker careTaker, IFindable finder)
         {
             this.repositoryContext = repositoryContext;
             contents = new List<Content>();
@@ -25,6 +27,7 @@ namespace BLL.Classes.BLL.Context
             this.careTaker = new List<CareTaker>();
             this.careTaker.Add(careTaker);
             careTakerIndex = 0;
+            this.finder = finder;
         }
 
         //Update frome repository
@@ -32,8 +35,6 @@ namespace BLL.Classes.BLL.Context
         {
             this.contents = repositoryContext.Read();
         }
-
-
 
         public List<Content> GetContents()
         {
@@ -100,5 +101,8 @@ namespace BLL.Classes.BLL.Context
             }
         }
 
+        public List<Content> Find(String find) {
+            return finder.Find(find,contents);
+        }
     }
 }

@@ -35,14 +35,8 @@ namespace PL
             DrowListViewItems_Extensions();
         }
 
-/*        public MainWindow()
-        {
-            throw new Exception("UserContext is Null");
-        }
-*/
         //----------------------
 
-       
         private void DrowListViewItems_Extensions() {
             List<String> currExts = new List<string>();
             List<String> newExts = userContext.GetExtensions();
@@ -265,6 +259,15 @@ namespace PL
             DrowListViewItems_Contents(userContext.GetContents());
             DrowListViewItems_Extensions();
             }
+
+
+        //-------------------------------------------------------------
+
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DrowListViewItems_Contents(userContext.Find((sender as TextBox).Text));
+        }
 
 
 

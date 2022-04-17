@@ -46,6 +46,13 @@ namespace BLL.Classes.File
         {
             return this.GetHashCode().CompareTo(obj.GetHashCode());
         }
+
+        public bool IsContain(string contain) {
+            bool retValue;
+            _ = (Name.Contains(contain)) ? retValue = true : (Extension.Contains(contain))? retValue = true : 
+                (Path.Contains(contain)) ? retValue = true : (Id.ToString().Contains(contain)) ? retValue = true : retValue = false ;
+            return retValue;
+        }
     }
 
 }
